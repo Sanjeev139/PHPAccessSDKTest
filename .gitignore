@@ -1,0 +1,10 @@
+# IDE
+.idea
+
+# Composer
+vendor
+composer.lock
+
+# Log files
+kount_access_sdk.log
+kount_access_sdk_tests.log
