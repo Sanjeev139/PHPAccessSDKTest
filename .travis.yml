@@ -17,10 +17,7 @@ before_deploy:
 - export GIT_TAG=$(awk -F "=" '/SDK_VERSION/ {print $2}' src/settings.ini)
 - export TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 - git tag -a $GIT_TAG -m "Version for git tag $GIT_TAG."
-- echo $GH_TOKEN
-# - git push --quiet https://${GH_TOKEN}@github.com/Sanjeev139/PHPAccessSDKTest.git --tags > /dev/null 2>&1
-- git remote add origin-pages https://${GH_TOKEN}@github.com/Sanjeev139/PHPAccessSDKTest.git > /dev/null 2>&1
-- git push --quiet --set-upstream origin-pages gh-pages
+- git push --quiet https://$GH_TOKEN@github.com/Sanjeev139/PHPAccessSDKTest.git --tags > /dev/null 2>&1
 deploy:
   provider: releases
   api_key: $GH_TOKEN
