@@ -20,7 +20,7 @@ before_deploy:
 - git push --quiet https://0122c35a395517ef407e893ee665d9eb56c4ff67@github.com/Sanjeev139/PHPAccessSDKTest.git --tags > /dev/null 2>&1
 deploy:
   provider: releases
-  api_key: $GH_TOKEN
+  api_key: 0122c35a395517ef407e893ee665d9eb56c4ff67
   file: Sdk-access-Php-$GIT_TAG-$TIMESTAMP.zip
   skip_cleanup: true
   on:
