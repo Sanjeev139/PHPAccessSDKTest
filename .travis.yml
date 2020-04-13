@@ -17,7 +17,7 @@ before_deploy:
 - export GIT_TAG=$(awk -F "=" '/SDK_VERSION/ {print $2}' src/settings.ini)
 - export TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 - git tag -a $GIT_TAG -m "Version for git tag $GIT_TAG."
-- git push --quiet https://a8ba7d042c1bf8b2b24e442fd05e82f7b118d89a@github.com/Sanjeev139/PHPAccessSDKTest.git --tags > /dev/null 2>&1
+- git push --quiet https://0122c35a395517ef407e893ee665d9eb56c4ff67@github.com/Sanjeev139/PHPAccessSDKTest.git --tags > /dev/null 2>&1
 deploy:
   provider: releases
   api_key: $GH_TOKEN
