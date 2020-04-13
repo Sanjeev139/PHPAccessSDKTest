@@ -6,13 +6,13 @@ use Kount\AccessException;
 
 require __DIR__."/../../../../vendor/autoload.php";
 
-class AccessSDKTest extends PHPUnit_Framework_TestCase
+class AccessSDKTest extends \PHPUnit\Framework\TestCase
 {
 
     const VERSION = "0400";
-    const MERCHANT_ID = 123456;
+    const MERCHANT_ID = 900431;
 
-    const API_KEY = "PUT_YOUR_API_KEY_HERE";
+    const API_KEY = "yJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5MDA0MzEiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNTYzOTM4NjA2LCJzY3AiOnsia2EiOnRydWUsImtjIjp0cnVlLCJhcGkiOnRydWUsInJpcyI6dHJ1ZX19.WidWQkNcPeVRlBdu77cgsyQOSMRqzQHnzH3S70cnU38";
     const SERVER_URL = "api-sandbox01.kountaccess.com";
     const FINGERPRINT = '75012bd5e5b264c4b324f5c95a769541';
     const SESSION_ID = "8f18a81cfb6e3179ece7138ac81019aa";
@@ -24,7 +24,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     const DECISION = "A";
 
     // private $host;
-    // private $behavio_host;
+    // // private $behavio_host;
     // private $session_url;
     // private $access_url;
     // private $device_json;
@@ -32,27 +32,29 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     // private $velocity_json;
     // private $logger;
 
-    public function __construct()
-    {
-        Logger::configure(__DIR__.'/../../../../config.xml');
-        $this->logger = Logger::getLogger("Test Access Logger");
 
-        $this->host             = self::MERCHANT_ID.".kountaccess.com";
-        $this->session_url      = "https://".$this->host."/api/session=".self::SESSION_ID;
-        $this->access_url       = "https://".$this->host."/access";
-        //$this->behavio_host       = "https://api.behavio.kaptcha.com/sandbox/";
-        $this->device_json      = '{"device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'"}';
-        $this->velocity_json    = '{"device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'", "velocity": {"account": {"dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "device": {"alh": 1, "alm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "ip_address": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "password": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "ulh": 1, "ulm": 1 }, "user": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1 }}}';
-        $this->decision_json    = '{"decision": {"errors": [], "reply": {"ruleEvents": {"decision": "'.self::DECISION.'", "ruleEvents": [], "total": 0 } }, "warnings": [] }, "device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'", "velocity": {"account": {"dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "device": {"alh": 1, "alm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "ip_address": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "password": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "ulh": 1, "ulm": 1 }, "user": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1 }}}';
-        $this->device_info_json = '{"device": {"id": "55e9fbfda2ce489d83b4a99c84c6f3e1", "ipAddress": "64.128.91.251", "ipGeo": "US", "mobile": 0, "proxy": 0, "tor": 0, "region": "ID", "country": "US", "geoLat": 43.632, "geoLong": -116.2838 },"response_id": "c0a09c2736074c00b248d978ff7faeb6"}';
 
-    }
+    // public function __construct()
+    // {
+    //     //echo "Hi";die;
+    //     // Logger::configure(__DIR__.'/../../../../config.xml');
+    //     // $this->logger = Logger::getLogger("Test Access Logger");
+
+    //     $this->host             = self::MERCHANT_ID.".kountaccess.com";
+    //     $this->session_url      = "https://".$this->host."/api/session=".self::SESSION_ID;
+    //     $this->access_url       = "https://".$this->host."/access";
+    //     $this->device_json      = '{"device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'"}';
+    //     $this->velocity_json    = '{"device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'", "velocity": {"account": {"dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "device": {"alh": 1, "alm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "ip_address": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "password": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "ulh": 1, "ulm": 1 }, "user": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1 }}}';
+    //     $this->decision_json    = '{"decision": {"errors": [], "reply": {"ruleEvents": {"decision": "'.self::DECISION.'", "ruleEvents": [], "total": 0 } }, "warnings": [] }, "device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'", "velocity": {"account": {"dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "device": {"alh": 1, "alm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "ip_address": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "password": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "ulh": 1, "ulm": 1 }, "user": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1 }}}';
+    //     $this->device_info_json = '{"device": {"id": "55e9fbfda2ce489d83b4a99c84c6f3e1", "ipAddress": "64.128.91.251", "ipGeo": "US", "mobile": 0, "proxy": 0, "tor": 0, "region": "ID", "country": "US", "geoLat": 43.632, "geoLong": -116.2838 },"response_id": "c0a09c2736074c00b248d978ff7faeb6"}';
+
+    // }
 
 
     public function testAccessInit()
     {
         try {
-            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION);
+            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION);
             $this->assertNotNull($kount_access);
         } catch (AccessException $e) {
             echo "Bad src Access Exception ".$e->getAccessErrorType().":".$e->getMessage();
@@ -72,7 +74,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     public function testAccessInitBadMerchant()
     {
         try {
-            $kount_access = new AccessService(-1, self::API_KEY, $this->host, self::VERSION);
+            $kount_access = new AccessService(-1, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION);
             $this->fail("Should have failed MERCHANT_ID");
         } catch (AccessException $ae) {
             $this->assertEquals(AccessException::INVALID_DATA, $ae->getAccessErrorType());
@@ -82,7 +84,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     public function testAccessInitNoAPI_KEY()
     {
         try {
-            $kount_access = new AccessService(self::MERCHANT_ID, null, $this->host, self::VERSION);
+            $kount_access = new AccessService(self::MERCHANT_ID, null, self::MERCHANT_ID.".kountaccess.com", self::VERSION);
             $this->fail("Should have failed API_KEY");
         } catch (AccessException $ae) {
             $this->assertEquals(AccessException::INVALID_DATA, $ae->getAccessErrorType());
@@ -92,7 +94,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     public function testAccessInitBlankAPI_KEY()
     {
         try {
-            $kount_access = new AccessService(self::MERCHANT_ID, " ", $this->host, self::VERSION);
+            $kount_access = new AccessService(self::MERCHANT_ID, " ", self::MERCHANT_ID.".kountaccess.com", self::VERSION);
             $this->fail("Should have failed API_KEY");
         } catch (AccessException $ae) {
             $this->assertEquals(AccessException::INVALID_DATA, $ae->getAccessErrorType());
@@ -101,13 +103,17 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
     public function testGetDevice()
     {
+        Logger::configure(__DIR__.'/../../../../config.xml');
+        $this->logger = Logger::getLogger("Test Access Logger");
+
+        $device_json      = '{"device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'"}';
         $mock = $this->getMockBuilder(AccessCurlService::class)->setConstructorArgs(
             array(self::MERCHANT_ID, self::API_KEY)
         )->setMethods(['__call_endpoint'])->getMock();
 
-        $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($this->device_json));
+        $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($device_json));
 
-        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION, $mock);
+        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION, $mock);
 
         $deviceInfo = $kount_access->getDevice(self::SESSION_ID);
         $this->assertNotNull($deviceInfo);
@@ -125,13 +131,16 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
     public function testGetVelocity()
     {
+        Logger::configure(__DIR__.'/../../../../config.xml');
+        $this->logger = Logger::getLogger("Test Access Logger");
+        $velocity_json    = '{"device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'", "velocity": {"account": {"dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "device": {"alh": 1, "alm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "ip_address": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "password": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "ulh": 1, "ulm": 1 }, "user": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1 }}}';
         $mock = $this->getMockBuilder(AccessCurlService::class)->setConstructorArgs(
             array(self::MERCHANT_ID, self::API_KEY)
         )->setMethods(['__call_endpoint'])->getMock();
 
-        $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($this->velocity_json));
+        $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($velocity_json));
 
-        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION, $mock);
+        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION, $mock);
 
         $velocity = $kount_access->getVelocity(self::SESSION_ID, self::USER, self::PASSWORD);
         $this->assertNotNull($velocity);
@@ -150,7 +159,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
         $this->assertNotNull($velocityInfo['velocity']);
 
-        $velocityJson = json_decode($this->velocity_json, true);
+        $velocityJson = json_decode($velocity_json, true);
 
         $this->assertEquals($velocityJson['velocity']['account'], $velocityInfo['velocity']['account']);
         $this->assertEquals($velocityJson['velocity']['device'], $velocityInfo['velocity']['device']);
@@ -161,13 +170,16 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
     public function testGetDecision()
     {
+        Logger::configure(__DIR__.'/../../../../config.xml');
+        $this->logger = Logger::getLogger("Test Access Logger");
+        $decision_json    = '{"decision": {"errors": [], "reply": {"ruleEvents": {"decision": "'.self::DECISION.'", "ruleEvents": [], "total": 0 } }, "warnings": [] }, "device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'", "velocity": {"account": {"dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "device": {"alh": 1, "alm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "ip_address": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "password": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "ulh": 1, "ulm": 1 }, "user": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1 }}}';
         $mock = $this->getMockBuilder(AccessCurlService::class)->setConstructorArgs(
             array(self::MERCHANT_ID, self::API_KEY)
         )->setMethods(['__call_endpoint'])->getMock();
 
-        $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($this->decision_json));
+        $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($decision_json));
 
-        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION, $mock);
+        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION, $mock);
 
         $decision = $kount_access->getDecision(self::SESSION_ID, self::USER, self::PASSWORD);
         $this->assertNotNull($decision);
@@ -186,7 +198,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
         $this->assertNotNull($decisionInfo['velocity']);
 
-        $decisionJson = json_decode($this->decision_json, true);
+        $decisionJson = json_decode($decision_json, true);
 
         $this->assertEquals($decisionJson['velocity']['account'], $decisionInfo['velocity']['account']);
         $this->assertEquals($decisionJson['velocity']['device'], $decisionInfo['velocity']['device']);
@@ -197,6 +209,8 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
     public function testGetDevices()
     {
+        Logger::configure(__DIR__.'/../../../../config.xml');
+        $this->logger = Logger::getLogger("Test Access Logger");
         $mock = $this->getMockBuilder(AccessCurlService::class)->setConstructorArgs(
             array(self::MERCHANT_ID, self::API_KEY)
         )->setMethods(['__call_endpoint'])->getMock();
@@ -206,7 +220,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
         $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($fakeResponse));
 
-        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION, $mock);
+        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION, $mock);
 
         $deviceInfo = $kount_access->getDevices(self::SESSION_ID);
         $this->assertNotNull($deviceInfo);
@@ -220,6 +234,8 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
     public function testGetUniques()
     {
+        Logger::configure(__DIR__.'/../../../../config.xml');
+        $this->logger = Logger::getLogger("Test Access Logger");
         $mock = $this->getMockBuilder(AccessCurlService::class)->setConstructorArgs(
             array(self::MERCHANT_ID, self::API_KEY)
         )->setMethods(['__call_endpoint'])->getMock();
@@ -229,7 +245,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
         $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($fakeResponse));
 
-        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION, $mock);
+        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION, $mock);
 
         $uniqueInfo = $kount_access->getUniques($fakeDeviceId);
         $this->assertNotNull($uniqueInfo);
@@ -244,7 +260,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     public function testCheckRequiredInfoThrowsAnExceptionOnNoRequiredResponseCalledBeforehand()
     {
         try {
-            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION);
+            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION);
             $kount_access->checkRequiredInfo();
             $this->fail(
                 'Should have thrown KountAccessException for not called require_object() before invoking the method.'
@@ -257,7 +273,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     public function testCheckRequiredThrowsAnExceptionOnMissingUnique()
     {
         try {
-            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION);
+            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION);
             $kount_access->withDeviceInfo();
             $kount_access->withTrustedDeviceInfo();
 
@@ -272,11 +288,10 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     public function testCheckRequiredThrowsAnExceptionOnMissingUserPassword()
     {
         try {
-            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION);
+            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION);
             $kount_access->withDeviceInfo();
             $kount_access->withTrustedDeviceInfo();
             $kount_access->withVelocity();
-            $kount_access->withBehavioSec();
 
             $kount_access->checkRequiredInfo('FakeUniqueParam');
 
@@ -289,13 +304,16 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
 
     public function testGetInfoReturnesDeviceInfoResponse()
     {
+        Logger::configure(__DIR__.'/../../../../config.xml');
+        $this->logger = Logger::getLogger("Test Access Logger");
+        $device_info_json = '{"device": {"id": "55e9fbfda2ce489d83b4a99c84c6f3e1", "ipAddress": "64.128.91.251", "ipGeo": "US", "mobile": 0, "proxy": 0, "tor": 0, "region": "ID", "country": "US", "geoLat": 43.632, "geoLong": -116.2838 },"response_id": "c0a09c2736074c00b248d978ff7faeb6"}';
         $mock = $this->getMockBuilder(AccessCurlService::class)->setConstructorArgs(
             array(self::MERCHANT_ID, self::API_KEY)
         )->setMethods(['__call_endpoint'])->getMock();
 
-        $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($this->device_info_json));
+        $mock->expects($this->any())->method('__call_endpoint')->will($this->returnValue($device_info_json));
 
-        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION, $mock);
+        $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION, $mock);
 
         $apiResponse = $kount_access->withDeviceInfo()->getInfo(self::SESSION_ID);
         $this->assertNotNull($apiResponse);
@@ -312,7 +330,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     public function testDeviceTrustBySessionShouldAcceptOnlyValidStates()
     {
         try {
-            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION);
+            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION);
 
             $kount_access->deviceTrustBySession(self::SESSION_ID, self::USER, 'INVALID_STATE');
 
@@ -325,7 +343,7 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
     public function testDeviceTrustByDeviceShouldAcceptOnlyValidStates()
     {
         try {
-            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION);
+            $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, self::MERCHANT_ID.".kountaccess.com", self::VERSION);
             $fakeDeviceId = 'FAKE_DEVICE_ID';
             $kount_access->deviceTrustByDevice($fakeDeviceId, self::USER, 'INVALID_STATE');
 
@@ -334,51 +352,5 @@ class AccessSDKTest extends PHPUnit_Framework_TestCase
             $this->assertEquals(AccessException::INVALID_DATA, $e->getAccessErrorType());
         }
     }
-
-    // public function testBehavioSecDataEndpointIsValidated()
-    // {
-    //     try {
-    //         $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION);
-    //         $fakeDeviceId = 'FAKE_DEVICE_ID';
-    //         $kount_access->behaviosecData($fakeDeviceId, self::USER, '{"test":"test"}', "INVALID_HOST_FOR_BEHAVIO");
-
-    //         $this->fail('Should have thrown KountAccessException for an invalid server passed');
-    //     } catch (AccessException $e) {
-    //         $this->assertEquals(AccessException::INVALID_DATA, $e->getAccessErrorType());
-    //     }
-    // }
-
-    // public function testBehavioSecDataTimingIsValidated()
-    // {
-    //     try {
-    //         $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION);
-    //         $fakeDeviceId = 'FAKE_DEVICE_ID';
-    //         $kount_access->behaviosecData($fakeDeviceId, self::USER, 'INVALID JSON', $this->behavio_host);
-    //         $this->fail('Should have thrown KountAccessException for an invalid timing parameter passed');
-    //     } catch (AccessException $e) {
-    //         $this->assertEquals(AccessException::INVALID_DATA, $e->getAccessErrorType());
-    //     }
-    // }
-
-    // public function testBehavioSecDataUrlPassedIsStripped()
-    // {
-    //     $mock = $this->getMockBuilder(AccessCurlService::class)->setConstructorArgs(
-    //         array(self::MERCHANT_ID, self::API_KEY)
-    //     )->setMethods(['__call_endpoint'])->getMock();
-
-    //     $fakePreparedData = [
-    //         'm' => self::MERCHANT_ID,
-    //         's' => 'FAKE_SESSION_ID',
-    //         'timing' => '{"valid":"json"}',
-    //         'uniq' => self::USER,
-
-    //     ];
-    //     $formattedBehavioUrl =  $this->behavio_host."behavio/data";
-    //     $mock->expects($this->any())->method('__call_endpoint')->with($formattedBehavioUrl, "POST", $fakePreparedData);
-
-    //     $kount_access = new AccessService(self::MERCHANT_ID, self::API_KEY, $this->host, self::VERSION, $mock);
-    //     $kount_access->behaviosecData('FAKE_SESSION_ID', self::USER, '{"valid":"json"}', $this->behavio_host);
-
-    // }
 
 }
