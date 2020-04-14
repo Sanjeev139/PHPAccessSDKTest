@@ -10,9 +10,9 @@ class AccessSDKTest extends \PHPUnit\Framework\TestCase
 {
 
     const VERSION = "0400";
-    const MERCHANT_ID = 900431;
+    const MERCHANT_ID = 123456;
 
-    const API_KEY = "yJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5MDA0MzEiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNTYzOTM4NjA2LCJzY3AiOnsia2EiOnRydWUsImtjIjp0cnVlLCJhcGkiOnRydWUsInJpcyI6dHJ1ZX19.WidWQkNcPeVRlBdu77cgsyQOSMRqzQHnzH3S70cnU38";
+    const API_KEY = "PUT_YOUR_API_KEY_HERE";
     const SERVER_URL = "api-sandbox01.kountaccess.com";
     const FINGERPRINT = '75012bd5e5b264c4b324f5c95a769541';
     const SESSION_ID = "8f18a81cfb6e3179ece7138ac81019aa";
