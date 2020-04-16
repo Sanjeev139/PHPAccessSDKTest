@@ -3,7 +3,7 @@
   "description": "This library allows you to connect to the Kount Access API services and get information back from your login transactions.",
   "keywords": ["access", "api", "php"],
   "homepage": "https://github.com/Sanjeev139/PHPAccessSDKTest",
-  "type" : "library",
+  "type" : "Library",
   "license": "ISC",
   "authors": [{
     "name": "SanjeevITT",

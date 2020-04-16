@@ -23,33 +23,6 @@ class AccessSDKTest extends \PHPUnit\Framework\TestCase
     const RESPONSE_ID = "bf10cd20cf61286669e87342d029e405";
     const DECISION = "A";
 
-    // private $host;
-    // // private $behavio_host;
-    // private $session_url;
-    // private $access_url;
-    // private $device_json;
-    // private $device_info_json;
-    // private $velocity_json;
-    // private $logger;
-
-
-
-    // public function __construct()
-    // {
-    //     //echo "Hi";die;
-    //     // Logger::configure(__DIR__.'/../../../../config.xml');
-    //     // $this->logger = Logger::getLogger("Test Access Logger");
-
-    //     $this->host             = self::MERCHANT_ID.".kountaccess.com";
-    //     $this->session_url      = "https://".$this->host."/api/session=".self::SESSION_ID;
-    //     $this->access_url       = "https://".$this->host."/access";
-    //     $this->device_json      = '{"device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'"}';
-    //     $this->velocity_json    = '{"device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'", "velocity": {"account": {"dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "device": {"alh": 1, "alm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "ip_address": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "password": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "ulh": 1, "ulm": 1 }, "user": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1 }}}';
-    //     $this->decision_json    = '{"decision": {"errors": [], "reply": {"ruleEvents": {"decision": "'.self::DECISION.'", "ruleEvents": [], "total": 0 } }, "warnings": [] }, "device": {"id": "'.self::FINGERPRINT.'", "ipAddress": "'.self::IP_ADDRESS.'", "ipGeo": "'.self::IP_GEO.'", "mobile": 1, "proxy": 0 }, "response_id": "'.self::RESPONSE_ID.'", "velocity": {"account": {"dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "device": {"alh": 1, "alm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "ip_address": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "plh": 1, "plm": 1, "ulh": 1, "ulm": 1 }, "password": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "ulh": 1, "ulm": 1 }, "user": {"alh": 1, "alm": 1, "dlh": 1, "dlm": 1, "iplh": 1, "iplm": 1, "plh": 1, "plm": 1 }}}';
-    //     $this->device_info_json = '{"device": {"id": "55e9fbfda2ce489d83b4a99c84c6f3e1", "ipAddress": "64.128.91.251", "ipGeo": "US", "mobile": 0, "proxy": 0, "tor": 0, "region": "ID", "country": "US", "geoLat": 43.632, "geoLong": -116.2838 },"response_id": "c0a09c2736074c00b248d978ff7faeb6"}';
-
-    // }
-
 
     public function testAccessInit()
     {
